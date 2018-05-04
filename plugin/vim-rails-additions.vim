@@ -35,38 +35,3 @@ function! rails#pluralize(word)
   let word = s:sub(word,'ersons$','eople')
   return word
 endfunction
-
-
-let s:default_projections["app/graphql/types/*_type.rb"] = {
-  \    "affinity": "type",
-  \    "template": ["Types::{camelcase|capitalize|colons}Type = GraphQL::ObjectType.define do", 
-  \                 "  name \"{camelcase|capitalize|colons}\"",
-  \                 "  description \"\"",
-  \                 "end"],
-  \    "type": "type"
-  \ }
-
-let s:default_projections["app/graphql/resolvers/*.rb"] = {
-  \    "affinity": "resolver",
-  \    "template": ["class Resolvers::{camelcase|capitalize|colons} < GraphQL::Function", 
-  \                 "  type types.String",
-  \                 "",
-  \                 "  def call(_obj, args, ctx)",
-  \                 "  end",
-  \                 "end"],
-  \    "type": "resolver"
-  \ }
-
-let s:default_projections["app/graphql/mutations/*_mutation.rb"] = {
-  \    "affinity": "mutation",
-  \    "template": ["Mutations::{camelcase|capitalize|colons}Mutation = GraphQL::Relay::Mutation.define do", 
-  \                 "  name \"{camelcase|capitalize|colons}\"",
-  \                 "",
-  \                 "  # return_field :return_field, return_type",
-  \                 "  # input_field :input_field, !input_type",
-  \                 "",
-  \                 "  resolve ->(obj, input, ctx) {",
-  \                 "  }",
-  \                 "end"],
-  \    "type": "mutation"
-  \ }
