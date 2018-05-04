@@ -1,3 +1,11 @@
+if !exists("g:rails_singularize")
+  let g:rails_singularize = ""
+endif
+
+if !exists("g:rails_pluralize")
+  let g:rails_pluralize = ""
+endif
+
 function! s:sub(str,pat,rep)
   return substitute(a:str,'\v\C'.a:pat,a:rep,'')
 endfunction
