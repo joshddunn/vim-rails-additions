@@ -9,8 +9,8 @@ function! rails#singularize(word)
   let last_word = s:sub(word, '^.+_|:', '')
   if word =~? '\.js$' || word == ''
     return word
-  elseif has_key(g:rails_custom_singularize, last_word)  
-    return s:sub(word, last_word . '$', g:rails_custom_singularize[last_word])
+  elseif has_key(g:rails_singularize, last_word)
+    return s:sub(word, last_word . '$', g:rails_singularize[last_word])
   endif
   let word = s:sub(word,'eople$','ersons')
   let word = s:sub(word,'%([Mm]ov|[aeio])@<!ies$','ys')
@@ -28,8 +28,8 @@ function! rails#pluralize(word)
   let last_word = s:sub(word, '^.+_|:', '')
   if word == ''
     return word
-  elseif has_key(g:rails_custom_pluralize, last_word)  
-    return s:sub(word, last_word . '$', g:rails_custom_pluralize[last_word])
+  elseif has_key(g:rails_pluralize, last_word)
+    return s:sub(word, last_word . '$', g:rails_pluralize[last_word])
   endif
   let word = s:sub(word,'[aeio]@<!y$','ie')
   let word = s:sub(word,'%(nd|rt)@<=ex$','ice')
