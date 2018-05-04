@@ -1,3 +1,7 @@
+function! s:sub(str,pat,rep)
+  return substitute(a:str,'\v\C'.a:pat,a:rep,'')
+endfunction
+
 function! rails#singularize(word)
   " Probably not worth it to be as comprehensive as Rails but we can
   " still hit the common cases.
