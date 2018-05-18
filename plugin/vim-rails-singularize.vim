@@ -1,9 +1,9 @@
 if !exists("g:rails_singularize")
-  let g:rails_singularize = ""
+  let g:rails_singularize = {}
 endif
 
 if !exists("g:rails_pluralize")
-  let g:rails_pluralize = ""
+  let g:rails_pluralize = {}
 endif
 
 function! s:sub(str,pat,rep)
